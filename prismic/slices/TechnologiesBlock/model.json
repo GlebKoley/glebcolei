@@ -1,0 +1,72 @@
+{
+  "id": "technologies_block",
+  "type": "SharedSlice",
+  "name": "TechnologiesBlock",
+  "description": "TechnologiesBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Cards",
+            "repeat": true,
+            "fields": {
+              "technologies": {
+                "type": "Link",
+                "config": {
+                  "label": "Technologies",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "technologies_card",
+                      "fields": [
+                        "label",
+                        {
+                          "id": "technologies_data",
+                          "fields": [
+                            {
+                              "id": "technologies_item",
+                              "customtypes": [
+                                {
+                                  "id": "technologies",
+                                  "fields": [
+                                    "icon",
+                                    "text",
+                                    "level",
+                                    "link"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

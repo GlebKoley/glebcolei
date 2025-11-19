@@ -1,0 +1,288 @@
+@import 'tailwindcss';
+
+:root {
+   --font-Raleway: 'Raleway';
+   -webkit-tap-highlight-color: transparent;
+   box-sizing: border-box;
+   background: var(--color-mainBlack);
+   font-family: var(--font-Raleway);
+}
+
+button {
+   cursor: pointer;
+   outline: none;
+}
+
+@theme {
+   --breakpoint-*: initial;
+   --breakpoint-mobile-xs: 0px;
+   --breakpoint-mobile: 768px;
+   --breakpoint-tablet: 1280px;
+   --breakpoint-desktop: 1440px;
+   --breakpoint-desktop-xl: 1680px;
+
+   --color-mainBlack: #0c0c0d;
+   --color-lightBlack: #1a1a1a;
+   --color-mainPurple: #a185e6;
+   --color-lightPurple: #c69aff;
+   --color-mainGray: #7f7f7f;
+   --color-lightGreen: #5fb9b0;
+}
+
+html {
+   touch-action: manipulation;
+}
+
+body::-webkit-scrollbar {
+   width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+   background: var(--color-lightBlack);
+   border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+   background: #4b4b4b;
+   border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+   background: #6a6a6a;
+}
+
+body {
+   scrollbar-color: #4b4b4b var(--color-lightBlack);
+   scrollbar-width: thin;
+}
+
+@layer components {
+   & ul {
+      @apply tablet:ml-6 mt-0 ml-4 list-disc;
+
+      & strong {
+         @apply text-mainPurple font-medium;
+      }
+   }
+
+   & li {
+      @apply tablet:text-[18px] tablet:leading-6 tablet:my-2 text-mainGray my-1 text-[14px] leading-5;
+   }
+
+   .title-80 {
+      @apply tablet:text-[80px] tablet:leading-20 text-[32px] leading-[38px] font-semibold wrap-break-word text-white;
+   }
+
+   .title-75 {
+      @apply tablet:text-[75px] text-[32px] leading-[auto] font-medium text-white;
+   }
+
+   .title-60 {
+      @apply tablet:text-[60px] tablet:leading-[70px] text-[32px] leading-10 font-normal text-white;
+   }
+
+   .description-28 {
+      @apply tablet:text-[28px] tablet:leading-7 text-[16px] leading-4 font-semibold text-white;
+
+      & strong {
+         @apply font-bold text-white;
+      }
+   }
+
+   .description-22 {
+      @apply tablet:text-[22px] tablet:leading-8 text-mainGray text-[16px] leading-[187%] font-light;
+
+      & strong {
+         @apply font-bold text-white;
+      }
+   }
+
+   .description-16 {
+      @apply text-mainGray text-[16px] font-medium;
+   }
+
+   .global-padding-values {
+      @apply tablet:px-10 desktop-xl:px-0 px-4;
+   }
+
+   .main-wrapper {
+      @apply tablet:px-10 desktop-xl:px-0 tablet:mt-5 mt-4 flex w-full flex-col gap-3 px-4;
+   }
+
+   .text-link {
+      @apply tablet:text-[20px] tablet:mr-8 text-mainPurple relative block px-2 py-2 text-[40px] font-medium no-underline transition-colors duration-300;
+   }
+
+   .text-link--active {
+      @apply text-white;
+   }
+
+   .text-link:hover {
+      @apply text-white;
+   }
+
+   .animated-border-bottom {
+      @apply relative transition-colors duration-300;
+   }
+
+   .animated-border-bottom::after {
+      content: '';
+      @apply bg-lightPurple absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
+   }
+
+   .animated-border-bottom:hover::after {
+      @apply w-full;
+   }
+
+   .animated-border-bottom:hover {
+      @apply text-white;
+   }
+
+   .dots {
+      @apply h-2 w-2 rounded-full;
+   }
+
+   .btn-white,
+   .btn-transparent-purple {
+      @apply mobile:px-10 mobile:py-3 min-w-[184px] rounded-full border border-transparent p-2 text-center transition-all duration-400 ease-in-out will-change-transform;
+
+      &:hover {
+         @apply scale-105 -rotate-1 transform border border-white;
+      }
+   }
+
+   .btn-white {
+      @apply text-mainBlack bg-white font-bold;
+
+      &:hover {
+         @apply bg-mainBlack text-white;
+      }
+   }
+
+   .btn-transparent-purple {
+      @apply text-mainPurple bg-transparent font-bold;
+      &:hover {
+         @apply text-mainBlack bg-lightPurple border-black;
+      }
+   }
+
+   .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+   }
+   .no-scrollbar::-webkit-scrollbar {
+      display: none;
+   }
+
+   .modal-window-styles {
+      @apply tablet:p-8 bg-mainBlack max-h-[80dvh] w-full max-w-[80dvw] overflow-y-auto rounded-2xl p-4 shadow-xl transition-all;
+
+      & h2 {
+         @apply tablet:text-4xl text-mainPurple text-2xl font-bold;
+      }
+
+      & h4 {
+         @apply tablet:text-[20px] text-[16px] font-medium;
+      }
+
+      & h5 {
+         @apply tablet:text-[20px] text-[16px] underline decoration-gray-400 underline-offset-6;
+      }
+   }
+
+   .accordion-card-html-data-styles {
+      @apply z-110 max-h-full min-w-full text-start;
+
+      h2 {
+         @apply tablet:mb-3 tablet:text-[20px] mb-1 block text-[16px] leading-5;
+      }
+
+      * {
+         @apply z-110 h-max;
+      }
+
+      p {
+         @apply tablet:text-[18px] inline-block text-[16px];
+
+         & strong {
+            @apply text-lightGreen;
+         }
+      }
+
+      & .block-img {
+         @apply tablet:w-8 tablet:mx-3 mx-2 w-7 rounded-2xl bg-gray-100 p-1;
+      }
+   }
+
+   .parallax-wrapper {
+      @apply tablet:mt-0 tablet:mx-[unset] tablet:w-[180px] tablet:h-[180px] tablet:right-0 tablet:translate-[unset] tablet:absolute tablet:bottom-35 pointer-events-none mx-auto mt-5 h-[120px] w-[120px];
+   }
+
+   @keyframes spin {
+      from {
+         transform: rotate(0deg);
+      }
+      to {
+         transform: rotate(360deg);
+      }
+   }
+
+   @keyframes breathe {
+      0%,
+      100% {
+         transform: scale(1);
+      }
+      50% {
+         transform: scale(1.05);
+      }
+   }
+
+   @keyframes float {
+      0% {
+         transform: translateY(0px);
+      }
+      50% {
+         transform: translateY(-12px);
+      }
+      100% {
+         transform: translateY(0px);
+      }
+   }
+
+   @keyframes glow {
+      0%,
+      100% {
+         filter: drop-shadow(0 0 6px rgba(200, 130, 255, 0.25)) drop-shadow(0 0 12px rgba(200, 130, 255, 0.15));
+      }
+      50% {
+         filter: drop-shadow(0 0 14px rgba(228, 147, 255, 0.55)) drop-shadow(0 0 30px rgba(228, 147, 255, 0.35));
+      }
+   }
+
+   @keyframes fadeIn {
+      from {
+         opacity: 0;
+         transform: scale(0.95);
+      }
+      to {
+         opacity: 1;
+         transform: scale(1);
+      }
+   }
+
+   .animate-fadeIn {
+      animation: fadeIn 0.18s ease-out;
+   }
+
+   .spin {
+      animation: spin 60s linear infinite;
+   }
+
+   .react-icon {
+      @apply h-full w-full;
+      animation:
+         breathe 6s ease-in-out infinite,
+         float 2s ease-in-out infinite,
+         glow 2s ease-in-out infinite;
+   }
+}

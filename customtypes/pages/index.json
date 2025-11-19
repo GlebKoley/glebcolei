@@ -1,0 +1,63 @@
+{
+   "format": "page",
+   "id": "pages",
+   "label": "Pages",
+   "repeatable": true,
+   "status": true,
+   "json": {
+      "Main": {
+         "uid": {
+            "type": "UID",
+            "config": {
+               "label": "UID"
+            }
+         },
+         "url": {
+            "type": "Text",
+            "config": {
+               "label": "Url",
+               "placeholder": ""
+            }
+         },
+         "slices": {
+            "type": "Slices",
+            "fieldset": "Slice Zone",
+            "config": {
+               "choices": {
+                  "projects_accordion_block": {
+                     "type": "SharedSlice"
+                  },
+                  "about_me_block": {
+                     "type": "SharedSlice"
+                  },
+                  "contact_me_block": {
+                     "type": "SharedSlice"
+                  },
+                  "technologies_block": {
+                     "type": "SharedSlice"
+                  },
+                  "text_block": {
+                     "type": "SharedSlice"
+                  }
+               }
+            }
+         }
+      },
+      "SEO & Metadata": {
+         "meta_title": {
+            "config": {
+               "label": "Meta Title",
+               "placeholder": "A title of the page used for social media and search engines"
+            },
+            "type": "Text"
+         },
+         "meta_description": {
+            "config": {
+               "label": "Meta Description",
+               "placeholder": "A brief summary of the page"
+            },
+            "type": "Text"
+         }
+      }
+   }
+}

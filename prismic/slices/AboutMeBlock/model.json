@@ -1,0 +1,155 @@
+{
+  "id": "about_me_block",
+  "type": "SharedSlice",
+  "name": "AboutMeBlock",
+  "description": "AboutMeBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "button_variant": {
+          "type": "Link",
+          "config": {
+            "label": "Button variant",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "buttons_variant",
+                "fields": [
+                  "variant"
+                ]
+              }
+            ]
+          }
+        },
+        "left_card_label_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Left card label text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "left_card_data": {
+          "type": "Group",
+          "config": {
+            "label": "Left card data",
+            "repeat": true,
+            "fields": {
+              "emoji": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Emoji",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "top_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Top text",
+                  "placeholder": ""
+                }
+              },
+              "main_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Main text",
+                  "placeholder": ""
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "right_card_label_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Right card label text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "right_card_data": {
+          "type": "Group",
+          "config": {
+            "label": "Right card data",
+            "repeat": true,
+            "fields": {
+              "card_main_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Card main text",
+                  "placeholder": ""
+                }
+              },
+              "post_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Post text",
+                  "placeholder": ""
+                }
+              },
+              "bottom_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Bottom text",
+                  "placeholder": ""
+                }
+              },
+              "open_modal_data": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Open modal data",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

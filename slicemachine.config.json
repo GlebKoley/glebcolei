@@ -1,0 +1,6 @@
+{
+   "repositoryName": "gleb-colei-portfolio",
+   "adapter": "@slicemachine/adapter-next",
+   "libraries": ["./prismic/slices"],
+   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}

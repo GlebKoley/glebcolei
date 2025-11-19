@@ -1,0 +1,52 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"project_cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "themselves",
+									"type": "Text"
+								}
+							],
+							[
+								"accordion_data",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nisi voluptate fugiat deserunt cillum sint in in sit do irure elit tempor. Magna aliquip occaecat ipsum proident occaecat duis ipsum ullamco sint minim. Commodo labore sit ut incididunt irure aliquip laboris."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum ex sit et id laboris cupidatat adipisicing occaecat nulla id occaecat consectetur."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

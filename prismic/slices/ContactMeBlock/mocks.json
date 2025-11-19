@@ -1,0 +1,48 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In pariatur sunt amet consectetur dolor incididunt pariatur quis irure. Nostrud duis nisi duis nostrud labore non ullamco est pariatur deserunt dolore. Incididunt consequat in do reprehenderit fugiat ex enim et exercitation consectetur ad mollit officia qui."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation minim velit nulla consectetur."
+						}
+					}
+				]
+			},
+			"button_variant": {
+				"key": "5f8238b6-504f-441c-89d0-e44e61d750ec",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"button_link": {
+				"key": "bc6a5643-bf89-43e4-a18a-e61aee8aa019",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "get"
+				}
+			}
+		},
+		"items": []
+	}
+]

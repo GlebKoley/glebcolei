@@ -1,0 +1,39 @@
+{
+   "format": "custom",
+   "id": "layout",
+   "label": "Layout",
+   "repeatable": false,
+   "status": true,
+   "json": {
+      "Main": {
+         "button_link": {
+            "type": "Group",
+            "config": {
+               "label": "Button link",
+               "repeat": true,
+               "fields": {
+                  "link": {
+                     "type": "Link",
+                     "config": {
+                        "label": "Link",
+                        "placeholder": "",
+                        "select": null,
+                        "allowTargetBlank": true,
+                        "allowText": true,
+                        "repeat": false
+                     }
+                  },
+                  "icon": {
+                     "type": "Image",
+                     "config": {
+                        "label": "Icon",
+                        "constraint": {},
+                        "thumbnails": []
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
