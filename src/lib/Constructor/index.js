@@ -20,7 +20,7 @@ const Constructor = ({ slicesData = {} }) => {
             return (
                <section
                   key={id}
-                  className="ease-[cubic-bezier(0.68, -0.55, 0.27, 1.55)] absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-400 will-change-[transform,opacity,scale]"
+                  className="ease-[cubic-bezier(0.68, -0.55, 0.27, 1.55)] absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-600 will-change-[transform,opacity,scale]"
                   style={{
                      transform: `
                 translate3d(0, ${offset * 500}px, 0)

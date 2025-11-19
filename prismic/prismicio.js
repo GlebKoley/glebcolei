@@ -1,12 +1,9 @@
 import { createClient as baseCreateClient } from '@prismicio/client';
 import { enableAutoPreviews } from '@prismicio/next';
 
-import sm from '../slicemachine.config.json';
-
-export const repositoryName = process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || sm.repositoryName;
-
 export const createClient = (config = {}) => {
-   const client = baseCreateClient(repositoryName, {
+   const client = baseCreateClient(process.env.PRISMIC_REPOSITORY_NAME, {
+      accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       fetchOptions:
          process.env.NODE_ENV === 'production'
             ? { cache: 'force-cache', next: { tags: ['prismic'] } }

@@ -3,16 +3,17 @@ import React from 'react';
 import { asHTML } from '@prismicio/client';
 
 import LevelComponent from '../common/LevelComponent';
+import Link from 'next/link';
 
 const TechnologiesBlock = ({ data }) => {
-   const { title, cards = [] } = data;
+   const { title, cards = [], button = {} } = data;
    const htmlTitle = asHTML(title);
 
    return (
       <div className="main-wrapper tablet:gap-10 flex flex-col gap-5 px-0">
          <h2 dangerouslySetInnerHTML={{ __html: htmlTitle }} className="title-60 global-padding-values text-center" />
 
-         <div className="no-scrollbar global-padding-values tablet:gap-[26px] tablet:pb-10 flex snap-x snap-mandatory flex-row gap-3.5 overflow-x-auto scroll-smooth pb-0">
+         <div className="no-scrollbar global-padding-values tablet:gap-[26px] tablet:pb-0 flex snap-x snap-mandatory flex-row gap-3.5 overflow-x-auto scroll-smooth pb-0">
             {cards.map(({ technologies }) => {
                const { key, data: { label = '', technologies_data = [] } = {} } = technologies || {};
                return (
@@ -54,6 +55,11 @@ const TechnologiesBlock = ({ data }) => {
                );
             })}
          </div>
+         {button?.uid && (
+            <Link className="btn-white w-max self-center" href={button?.uid}>
+               {button?.text}
+            </Link>
+         )}
       </div>
    );
 };

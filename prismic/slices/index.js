@@ -3,9 +3,9 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
-   text_block: dynamic(() => import('./TextBlock')),
    about_me_block: dynamic(() => import('./AboutMeBlock')),
    contact_me_block: dynamic(() => import('./ContactMeBlock')),
-   technologies_block: dynamic(() => import('./TechnologiesBlock')),
    projects_accordion_block: dynamic(() => import('./ProjectsAccordionBlock')),
+   technologies_block: dynamic(() => import('./TechnologiesBlock')),
+   text_block: dynamic(() => import('./TextBlock')),
 };

@@ -739,6 +739,16 @@ export interface TechnologiesBlockSliceDefaultPrimary {
     * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
     */
    cards: prismic.GroupField<Simplify<TechnologiesBlockSliceDefaultPrimaryCardsItem>>;
+
+   /**
+    * Button field in *TechnologiesBlock → Default → Primary*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: technologies_block.default.primary.button
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
