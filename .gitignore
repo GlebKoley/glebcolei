@@ -42,4 +42,5 @@ next-env.d.ts
 
 # prismic
 prismic/slices/**/mocks*.json
+prismic/slices/**/index*.js
 
