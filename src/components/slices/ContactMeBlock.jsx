@@ -12,9 +12,9 @@ const ContactMeBlock = ({ data, currentScreenIndex }) => {
    const htmlDescription = asHTML(description);
 
    return (
-      <div className="main-wrapper tablet:gap-10 relative mx-auto mt-[8dvh] max-w-[950px] gap-5 text-center">
+      <div className="main-wrapper tablet:gap-10 mobile:max-w-[1150px] relative mx-auto mt-[8dvh] max-w-full gap-3 text-center">
          <h2 className="title-80" dangerouslySetInnerHTML={{ __html: htmlTitle }} />
-         <span className="description-22" dangerouslySetInnerHTML={{ __html: htmlDescription }} />
+         <span className="description-22 max-w-2xl self-center" dangerouslySetInnerHTML={{ __html: htmlDescription }} />
          <Link
             href={`/${button_link.slug}`}
             className={`z-10 mx-auto mt-0 ${button_variant?.data?.variant ?? 'btn-white'} w-max`}

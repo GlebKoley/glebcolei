@@ -1,16 +1,15 @@
 import React from 'react';
 
-import { asHTML } from '@prismicio/client';
-
 import AccordionCards from '../common/Cards/AccordionCards';
+import TitleWithButton from '../common/TitleWithButton';
 
 const ProjectsAccordionBlock = ({ data }) => {
-   const { title, project_cards = [] } = data;
-   const htmlTitle = asHTML(title);
+   const { project_cards = [], title_component = {} } = data;
 
    return (
-      <div className="main-wrapper tablet:gap-8 flex h-max flex-col gap-4 pb-5 text-center">
-         <h2 dangerouslySetInnerHTML={{ __html: htmlTitle }} className="description-22 leading-6 text-[#c8c8c8]" />
+      <div className="main-wrapper tablet:gap-10 flex h-max flex-col gap-4 pt-0 pb-5 text-center">
+         {title_component?.data && <TitleWithButton data={title_component.data} />}
+
          <AccordionCards cards={project_cards} />
       </div>
    );

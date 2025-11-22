@@ -14,7 +14,7 @@ const AccordionCardsMobile = ({ cards, openIndex, setOpenIndex }) => {
             <div className="to-lightBlack border-lightPurple from-mainBlack mt-3 max-h-full w-full rounded-2xl border bg-linear-to-tr p-4 pr-2 transition-all">
                <div
                   dangerouslySetInnerHTML={{ __html: asHTML(activeCard.accordion_data) }}
-                  className="accordion-card-html-data-styles description-22 max-h-[60dvh] overflow-auto text-white"
+                  className="accordion-card-html-data-styles description-22 max-h-[50dvh] overflow-auto text-white"
                />
             </div>
          )}

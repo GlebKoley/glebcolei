@@ -66,7 +66,7 @@ body {
    }
 
    & li {
-      @apply tablet:text-[18px] tablet:leading-6 tablet:my-2 text-mainGray my-1 text-[14px] leading-5;
+      @apply tablet:text-[16px] tablet:leading-6 tablet:my-2 text-mainGray my-1 text-[14px] leading-5;
    }
 
    .title-80 {
@@ -81,8 +81,16 @@ body {
       @apply tablet:text-[60px] tablet:leading-[70px] text-[32px] leading-10 font-normal text-white;
    }
 
+   .description-30 {
+      @apply tablet:text-[30px] tablet:leading-10 text-mainGray text-[20px] leading-[130%] font-light;
+
+      & strong {
+         @apply font-bold text-white;
+      }
+   }
+
    .description-28 {
-      @apply tablet:text-[28px] tablet:leading-7 text-[16px] leading-4 font-semibold text-white;
+      @apply tablet:text-[28px] tablet:leading-7 text-[16px] leading-3 font-semibold text-white;
 
       & strong {
          @apply font-bold text-white;
@@ -144,7 +152,7 @@ body {
 
    .btn-white,
    .btn-transparent-purple {
-      @apply mobile:px-10 mobile:py-3 min-w-[184px] rounded-full border border-transparent p-2 text-center transition-all duration-400 ease-in-out will-change-transform;
+      @apply mobile:px-3.5 mobile:py-2.5 mobile:text-[16px] min-w-[184px] rounded-full border border-transparent p-2.5 text-center text-[14px] font-semibold transition-all duration-400 ease-in-out will-change-transform;
 
       &:hover {
          @apply scale-105 -rotate-1 transform border border-white;
@@ -152,7 +160,7 @@ body {
    }
 
    .btn-white {
-      @apply text-mainBlack bg-white font-bold;
+      @apply text-mainBlack bg-white;
 
       &:hover {
          @apply bg-mainBlack text-white;
@@ -160,7 +168,7 @@ body {
    }
 
    .btn-transparent-purple {
-      @apply text-mainPurple bg-transparent font-bold;
+      @apply text-mainPurple bg-transparent;
       &:hover {
          @apply text-mainBlack bg-lightPurple border-black;
       }

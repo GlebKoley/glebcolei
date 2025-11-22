@@ -12,6 +12,34 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title_component": {
+          "type": "Link",
+          "config": {
+            "label": "Title component",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "title_with_buttons",
+                "fields": [
+                  "title",
+                  "button",
+                  {
+                    "id": "button_variant",
+                    "customtypes": [
+                      {
+                        "id": "buttons_variant",
+                        "fields": [
+                          "variant"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {

@@ -332,12 +332,66 @@ export type TechnologiesCardDocument<Lang extends string = string> = prismic.Pri
    Lang
 >;
 
+/**
+ * Content for Title with buttons documents
+ */
+interface TitleWithButtonsDocumentData {
+   /**
+    * Title field in *Title with buttons*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: title_with_buttons.title
+    * - **Tab**: Main
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   title: prismic.RichTextField;
+
+   /**
+    * Button field in *Title with buttons*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: title_with_buttons.button
+    * - **Tab**: Main
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+   /**
+    * Button variant field in *Title with buttons*
+    *
+    * - **Field Type**: Content Relationship
+    * - **Placeholder**: *None*
+    * - **API ID Path**: title_with_buttons.button_variant
+    * - **Tab**: Main
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+    */
+   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
+}
+
+/**
+ * Title with buttons document from Prismic
+ *
+ * - **API ID**: `title_with_buttons`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TitleWithButtonsDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+   Simplify<TitleWithButtonsDocumentData>,
+   'title_with_buttons',
+   Lang
+>;
+
 export type AllDocumentTypes =
    | ButtonsVariantDocument
    | LayoutDocument
    | PagesDocument
    | TechnologiesDocument
-   | TechnologiesCardDocument;
+   | TechnologiesCardDocument
+   | TitleWithButtonsDocument;
 
 /**
  * Item in *AboutMeBlock → Default → Primary → Left card data*
@@ -434,34 +488,25 @@ export interface AboutMeBlockSliceDefaultPrimaryRightCardDataItem {
  */
 export interface AboutMeBlockSliceDefaultPrimary {
    /**
-    * Title field in *AboutMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: about_me_block.default.primary.title
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   title: prismic.RichTextField;
-
-   /**
-    * Link field in *AboutMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Link
-    * - **Placeholder**: *None*
-    * - **API ID Path**: about_me_block.default.primary.link
-    * - **Documentation**: https://prismic.io/docs/fields/link
-    */
-   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-   /**
-    * Button variant field in *AboutMeBlock → Default → Primary*
+    * Title component field in *AboutMeBlock → Default → Primary*
     *
     * - **Field Type**: Content Relationship
     * - **Placeholder**: *None*
-    * - **API ID Path**: about_me_block.default.primary.button_variant
+    * - **API ID Path**: about_me_block.default.primary.title_component
     * - **Documentation**: https://prismic.io/docs/fields/content-relationship
     */
-   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
+   title_component: ContentRelationshipFieldWithData<
+      [
+         {
+            id: 'title_with_buttons';
+            fields: [
+               'title',
+               'button',
+               { id: 'button_variant'; customtypes: [{ id: 'buttons_variant'; fields: ['variant'] }] },
+            ];
+         },
+      ]
+   >;
 
    /**
     * Left card label text field in *AboutMeBlock → Default → Primary*
@@ -633,6 +678,27 @@ export interface ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem {
  */
 export interface ProjectsAccordionBlockSliceDefaultPrimary {
    /**
+    * Title component field in *ProjectsAccordionBlock → Default → Primary*
+    *
+    * - **Field Type**: Content Relationship
+    * - **Placeholder**: *None*
+    * - **API ID Path**: projects_accordion_block.default.primary.title_component
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+    */
+   title_component: ContentRelationshipFieldWithData<
+      [
+         {
+            id: 'title_with_buttons';
+            fields: [
+               'title',
+               'button',
+               { id: 'button_variant'; customtypes: [{ id: 'buttons_variant'; fields: ['variant'] }] },
+            ];
+         },
+      ]
+   >;
+
+   /**
     * Title field in *ProjectsAccordionBlock → Default → Primary*
     *
     * - **Field Type**: Rich Text
@@ -721,14 +787,25 @@ export interface TechnologiesBlockSliceDefaultPrimaryCardsItem {
  */
 export interface TechnologiesBlockSliceDefaultPrimary {
    /**
-    * Title field in *TechnologiesBlock → Default → Primary*
+    * Title component field in *TechnologiesBlock → Default → Primary*
     *
-    * - **Field Type**: Rich Text
+    * - **Field Type**: Content Relationship
     * - **Placeholder**: *None*
-    * - **API ID Path**: technologies_block.default.primary.title
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    * - **API ID Path**: technologies_block.default.primary.title_component
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
     */
-   title: prismic.RichTextField;
+   title_component: ContentRelationshipFieldWithData<
+      [
+         {
+            id: 'title_with_buttons';
+            fields: [
+               'title',
+               'button',
+               { id: 'button_variant'; customtypes: [{ id: 'buttons_variant'; fields: ['variant'] }] },
+            ];
+         },
+      ]
+   >;
 
    /**
     * Cards field in *TechnologiesBlock → Default → Primary*
@@ -739,16 +816,6 @@ export interface TechnologiesBlockSliceDefaultPrimary {
     * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
     */
    cards: prismic.GroupField<Simplify<TechnologiesBlockSliceDefaultPrimaryCardsItem>>;
-
-   /**
-    * Button field in *TechnologiesBlock → Default → Primary*
-    *
-    * - **Field Type**: Link
-    * - **Placeholder**: *None*
-    * - **API ID Path**: technologies_block.default.primary.button
-    * - **Documentation**: https://prismic.io/docs/fields/link
-    */
-   button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -903,6 +970,8 @@ declare module '@prismicio/client' {
          TechnologiesCardDocument,
          TechnologiesCardDocumentData,
          TechnologiesCardDocumentDataTechnologiesDataItem,
+         TitleWithButtonsDocument,
+         TitleWithButtonsDocumentData,
          AllDocumentTypes,
          AboutMeBlockSlice,
          AboutMeBlockSliceDefaultPrimaryLeftCardDataItem,

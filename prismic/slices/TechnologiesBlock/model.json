@@ -12,13 +12,32 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title": {
-          "type": "StructuredText",
+        "title_component": {
+          "type": "Link",
           "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "label": "Title component",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "title_with_buttons",
+                "fields": [
+                  "title",
+                  "button",
+                  {
+                    "id": "button_variant",
+                    "customtypes": [
+                      {
+                        "id": "buttons_variant",
+                        "fields": [
+                          "variant"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         },
         "cards": {
@@ -63,17 +82,6 @@
                 }
               }
             }
-          }
-        },
-        "button": {
-          "type": "Link",
-          "config": {
-            "label": "Button",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
           }
         }
       },

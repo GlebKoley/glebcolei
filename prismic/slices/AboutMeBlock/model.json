@@ -12,37 +12,29 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
-        "link": {
+        "title_component": {
           "type": "Link",
           "config": {
-            "label": "Link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": false
-          }
-        },
-        "button_variant": {
-          "type": "Link",
-          "config": {
-            "label": "Button variant",
+            "label": "Title component",
             "select": "document",
             "repeat": false,
             "customtypes": [
               {
-                "id": "buttons_variant",
+                "id": "title_with_buttons",
                 "fields": [
-                  "variant"
+                  "title",
+                  "button",
+                  {
+                    "id": "button_variant",
+                    "customtypes": [
+                      {
+                        "id": "buttons_variant",
+                        "fields": [
+                          "variant"
+                        ]
+                      }
+                    ]
+                  }
                 ]
               }
             ]

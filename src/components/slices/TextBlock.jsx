@@ -40,8 +40,9 @@ const TextBlock = ({ data }) => {
             width={550}
             height={550}
             field={image}
+            preload={true}
             loading="eager"
-            loader={({ src }) => `${src}&w=550&h=550&q=100`}
+            loader={({ src }) => `${src}&w=800&h=800&q=100&format=webp`}
             className="tablet:order-1 tablet:max-h-[550px] tablet:max-w-[550px] -order-1 h-full max-h-[200px] w-full max-w-[200px] object-cover"
          />
       </div>
