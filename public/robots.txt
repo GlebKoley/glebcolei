@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://glebcolei.com
+
+# Sitemaps
+Sitemap: https://glebcolei.com/sitemap.xml

@@ -1,7 +1,7 @@
 'use client';
 import { asHTML } from '@prismicio/client';
 
-import SliderTabs from '@/components/common/Tabs/SliderTabs';
+import SliderTabs from '@/lib/components/Tabs/SliderTabs';
 
 const AccordionCardsMobile = ({ cards, openIndex, setOpenIndex }) => {
    const activeCard = cards?.[openIndex];

@@ -1,8 +1,8 @@
 {
-  "id": "text_block",
+  "id": "main_banner",
   "type": "SharedSlice",
-  "name": "TextBlock",
-  "description": "TextBlock",
+  "name": "MainBanner",
+  "description": "MainBanner",
   "variations": [
     {
       "id": "default",

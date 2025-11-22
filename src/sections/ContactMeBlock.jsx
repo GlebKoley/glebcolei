@@ -3,7 +3,7 @@ import React from 'react';
 import { asHTML } from '@prismicio/client';
 import Link from 'next/link';
 
-import AnimateIcon from '../common/AnimateIcon';
+import AnimateIcon from '@/lib/components/AnimateIcon';
 
 const ContactMeBlock = ({ data, currentScreenIndex }) => {
    const { title, button_link, description, button_variant } = data;

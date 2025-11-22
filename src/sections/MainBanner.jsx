@@ -12,7 +12,7 @@ const TextBlock = ({ data }) => {
    const htmlDescription = asHTML(description);
 
    return (
-      <div className="main-wrapper tablet:flex-row tablet:justify-between tablet:mt-15 tablet:items-start mt-0 flex flex-col items-center justify-start gap-0">
+      <div className="main-wrapper tablet:flex-row tablet:justify-between tablet:mt-20 tablet:items-start mt-0 flex flex-col items-center justify-start gap-0">
          <div className="tablet:gap-[30px] flex max-w-[660px] flex-col gap-3">
             <h1 dangerouslySetInnerHTML={{ __html: htmlTitle }} className="title-75 tablet:text-start text-center" />
             <h2

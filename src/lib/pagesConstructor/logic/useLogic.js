@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 
-import { SLICES_TYPES } from '@/lib/utils/componentSlicesType';
+import { SECTIONS_TYPES } from '@/lib/utils/sectionsTypes';
 
 const useLogic = (slices = []) => {
    const [activeIndex, setActiveIndex] = useState(0);
@@ -11,7 +11,7 @@ const useLogic = (slices = []) => {
 
    const isModalOpen = useCallback(() => document.body.classList.contains('burger-menu-open'), []);
 
-   const validSlices = useMemo(() => slices.filter(({ slice_type }) => SLICES_TYPES[slice_type]), [slices]);
+   const validSlices = useMemo(() => slices.filter(({ slice_type }) => SECTIONS_TYPES[slice_type]), [slices]);
 
    const scrollHandler = useCallback(
       (delta) => {
@@ -24,6 +24,8 @@ const useLogic = (slices = []) => {
             if (delta < 0) return Math.max(prev - 1, 0);
             return prev;
          });
+
+         if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
 
          scrollTimeout.current = setTimeout(() => {
             isScrolling.current = false;

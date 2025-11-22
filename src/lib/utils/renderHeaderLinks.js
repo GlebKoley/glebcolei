@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextLink from '@/components/common/TextLink';
+import TextLink from '@/lib/components/TextLink';
 
 const renderHeaderLinks = ({ links = [], pathname = '', ...restProps }) => {
    const normalizedPath = pathname === '/' ? '/' : pathname;

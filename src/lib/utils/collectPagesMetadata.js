@@ -6,38 +6,53 @@ export const collectPagesMetadata = ({ metadata }) => {
    const isMainPage = url === '/';
    const pageUrl = isMainPage ? SITE_URL : `${SITE_URL}${url}`;
 
-   const title = meta_title || 'Глеб — React разработчик | Качественная и надёжная разработка';
+   const title = meta_title || 'Глеб — React разработчик';
    const description =
       meta_description ||
-      'Я Глеб — React разработчик, создаю качественные, поддерживаемые и эффективные решения. Работаю надёжно, в срок и без задержек.';
+      'Я создаю качественные, поддерживаемые и эффективные решения. Работаю надёжно, в срок и без задержек.';
 
    return {
       title,
       description,
+      creator: 'Глеб Колей',
+      publisher: 'Глеб Колей',
       metadataBase: new URL(SITE_URL),
+      authors: [{ url: SITE_URL, name: 'Глеб Колей' }],
       twitter: {
          title,
          description,
          card: 'summary_large_image',
       },
+      robots: {
+         index: true,
+         follow: true,
+         googleBot: {
+            index: true,
+            follow: true,
+         },
+      },
       alternates: {
          canonical: pageUrl,
-         // languages: {
-         //    'en-US': `${SITE_URL}/en${metadata?.url || '/'}`,
-         //    'x-default': pageUrl,
-         // },
+         languages: {
+            'ru-RU': pageUrl,
+            'x-default': SITE_URL,
+         },
       },
       openGraph: {
          title,
          description,
-         height: 630,
-         // `${SITE_URL}/favicon.ico`,
-         width: 1200,
          url: pageUrl,
          locale: 'ru_RU',
          type: 'website',
          siteName: 'glebcolei',
-         // image: `/api/og?title=${encodeURIComponent(metadata?.title || metadata?.seoTitle)}`,
+         images: [
+            {
+               height: 630,
+               width: 1200,
+               url: '/og-image.png',
+               alt: 'Глеб Колей — React разработчик',
+            },
+         ],
       },
    };
 };

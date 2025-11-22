@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
-   text_block: dynamic(() => import('./TextBlock')),
+   main_banner: dynamic(() => import('./MainBanner')),
    about_me_block: dynamic(() => import('./AboutMeBlock')),
    contact_me_block: dynamic(() => import('./ContactMeBlock')),
    technologies_block: dynamic(() => import('./TechnologiesBlock')),

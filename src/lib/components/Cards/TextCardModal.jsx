@@ -20,12 +20,14 @@ const TextCardModal = ({ props: { cards, label } }) => {
                <button
                   key={card_main_text}
                   onClick={() => setIsOpenIndex(index)}
-                  className="mobile:hover:border-[#B292FF55] mobile:hover:shadow-[0_0_25px_rgba(178,146,255,0.15)] mobile:hover:scale-[1.02] bg-lightBlack relative flex flex-col items-start gap-1.5 rounded-[20px] border border-[#272727] p-6 transition-all"
+                  className="mobile:hover:border-[#B292FF55] mobile:hover:shadow-[0_0_25px_rgba(178,146,255,0.15)] mobile:hover:scale-[1.02] bg-lightBlack mobile:p-6 relative flex flex-col items-start gap-4 rounded-[20px] border border-[#272727] p-4 pb-11 transition-all"
                >
                   <h4 className="description-28">{card_main_text}</h4>
-                  <p className="description-22 text-mainPurple">{post_text}</p>
-                  <span className="text-[14px] text-[#c8c8c8c7]">{bottom_text}</span>
-                  <div className="absolute right-4 bottom-4 w-fit min-w-[unset] rounded-[50%] bg-white p-1">
+                  <p className="description-22 text-mainPurple text-start leading-6">{post_text}</p>
+                  <span className="text-3 rounded-4xl bg-[#202129] p-2 text-center text-[14px] font-medium text-gray-400">
+                     {bottom_text}
+                  </span>
+                  <div className="mobile:right-4 mobile:bottom-4 absolute right-2 bottom-2 w-fit min-w-[unset] rounded-[50%] bg-white p-1">
                      <img width={15} height={15} alt="React icon" src="/arrow-icon.svg" className="-rotate-45" />
                   </div>
                </button>

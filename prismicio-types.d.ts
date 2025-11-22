@@ -142,11 +142,11 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
 >;
 
 type PagesDocumentDataSlicesSlice =
+   | MainBannerSlice
    | ProjectsAccordionBlockSlice
    | AboutMeBlockSlice
    | ContactMeBlockSlice
-   | TechnologiesBlockSlice
-   | TextBlockSlice;
+   | TechnologiesBlockSlice;
 
 /**
  * Content for Pages documents
@@ -649,19 +649,106 @@ type ContactMeBlockSliceVariation = ContactMeBlockSliceDefault;
 export type ContactMeBlockSlice = prismic.SharedSlice<'contact_me_block', ContactMeBlockSliceVariation>;
 
 /**
+ * Item in *MainBanner → Default → Primary → Buttons group*
+ */
+export interface MainBannerSliceDefaultPrimaryButtonsGroupItem {
+   /**
+    * Link field in *MainBanner → Default → Primary → Buttons group*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.buttons_group[].link
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+   /**
+    * Button variant field in *MainBanner → Default → Primary → Buttons group*
+    *
+    * - **Field Type**: Content Relationship
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.buttons_group[].button_variant
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+    */
+   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
+}
+
+/**
+ * Primary content in *MainBanner → Default → Primary*
+ */
+export interface MainBannerSliceDefaultPrimary {
+   /**
+    * Title field in *MainBanner → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.title
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   title: prismic.RichTextField;
+
+   /**
+    * Description field in *MainBanner → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.description
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   description: prismic.RichTextField;
+
+   /**
+    * Image field in *MainBanner → Default → Primary*
+    *
+    * - **Field Type**: Image
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.image
+    * - **Documentation**: https://prismic.io/docs/fields/image
+    */
+   image: prismic.ImageField<never>;
+
+   /**
+    * Buttons group field in *MainBanner → Default → Primary*
+    *
+    * - **Field Type**: Group
+    * - **Placeholder**: *None*
+    * - **API ID Path**: main_banner.default.primary.buttons_group[]
+    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+    */
+   buttons_group: prismic.GroupField<Simplify<MainBannerSliceDefaultPrimaryButtonsGroupItem>>;
+}
+
+/**
+ * Default variation for MainBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MainBannerSliceDefault = prismic.SharedSliceVariation<
+   'default',
+   Simplify<MainBannerSliceDefaultPrimary>,
+   never
+>;
+
+/**
+ * Slice variation for *MainBanner*
+ */
+type MainBannerSliceVariation = MainBannerSliceDefault;
+
+/**
+ * MainBanner Shared Slice
+ *
+ * - **API ID**: `main_banner`
+ * - **Description**: MainBanner
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MainBannerSlice = prismic.SharedSlice<'main_banner', MainBannerSliceVariation>;
+
+/**
  * Item in *ProjectsAccordionBlock → Default → Primary → Project cards*
  */
 export interface ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem {
-   /**
-    * Title field in *ProjectsAccordionBlock → Default → Primary → Project cards*
-    *
-    * - **Field Type**: Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: projects_accordion_block.default.primary.project_cards[].title
-    * - **Documentation**: https://prismic.io/docs/fields/text
-    */
-   title: prismic.KeyTextField;
-
    /**
     * Accordion data field in *ProjectsAccordionBlock → Default → Primary → Project cards*
     *
@@ -845,103 +932,6 @@ type TechnologiesBlockSliceVariation = TechnologiesBlockSliceDefault;
  */
 export type TechnologiesBlockSlice = prismic.SharedSlice<'technologies_block', TechnologiesBlockSliceVariation>;
 
-/**
- * Item in *TextBlock → Default → Primary → Buttons group*
- */
-export interface TextBlockSliceDefaultPrimaryButtonsGroupItem {
-   /**
-    * Link field in *TextBlock → Default → Primary → Buttons group*
-    *
-    * - **Field Type**: Link
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.buttons_group[].link
-    * - **Documentation**: https://prismic.io/docs/fields/link
-    */
-   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-   /**
-    * Button variant field in *TextBlock → Default → Primary → Buttons group*
-    *
-    * - **Field Type**: Content Relationship
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.buttons_group[].button_variant
-    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-    */
-   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
-}
-
-/**
- * Primary content in *TextBlock → Default → Primary*
- */
-export interface TextBlockSliceDefaultPrimary {
-   /**
-    * Title field in *TextBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.title
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   title: prismic.RichTextField;
-
-   /**
-    * Description field in *TextBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.description
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   description: prismic.RichTextField;
-
-   /**
-    * Image field in *TextBlock → Default → Primary*
-    *
-    * - **Field Type**: Image
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.image
-    * - **Documentation**: https://prismic.io/docs/fields/image
-    */
-   image: prismic.ImageField<never>;
-
-   /**
-    * Buttons group field in *TextBlock → Default → Primary*
-    *
-    * - **Field Type**: Group
-    * - **Placeholder**: *None*
-    * - **API ID Path**: text_block.default.primary.buttons_group[]
-    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-    */
-   buttons_group: prismic.GroupField<Simplify<TextBlockSliceDefaultPrimaryButtonsGroupItem>>;
-}
-
-/**
- * Default variation for TextBlock Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type TextBlockSliceDefault = prismic.SharedSliceVariation<
-   'default',
-   Simplify<TextBlockSliceDefaultPrimary>,
-   never
->;
-
-/**
- * Slice variation for *TextBlock*
- */
-type TextBlockSliceVariation = TextBlockSliceDefault;
-
-/**
- * TextBlock Shared Slice
- *
- * - **API ID**: `text_block`
- * - **Description**: TextBlock
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type TextBlockSlice = prismic.SharedSlice<'text_block', TextBlockSliceVariation>;
-
 declare module '@prismicio/client' {
    interface CreateClient {
       (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -983,6 +973,11 @@ declare module '@prismicio/client' {
          ContactMeBlockSliceDefaultPrimary,
          ContactMeBlockSliceVariation,
          ContactMeBlockSliceDefault,
+         MainBannerSlice,
+         MainBannerSliceDefaultPrimaryButtonsGroupItem,
+         MainBannerSliceDefaultPrimary,
+         MainBannerSliceVariation,
+         MainBannerSliceDefault,
          ProjectsAccordionBlockSlice,
          ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem,
          ProjectsAccordionBlockSliceDefaultPrimary,
@@ -993,11 +988,6 @@ declare module '@prismicio/client' {
          TechnologiesBlockSliceDefaultPrimary,
          TechnologiesBlockSliceVariation,
          TechnologiesBlockSliceDefault,
-         TextBlockSlice,
-         TextBlockSliceDefaultPrimaryButtonsGroupItem,
-         TextBlockSliceDefaultPrimary,
-         TextBlockSliceVariation,
-         TextBlockSliceDefault,
       };
    }
 }

@@ -118,7 +118,7 @@ body {
    }
 
    .text-link {
-      @apply tablet:text-[20px] tablet:mr-8 text-mainPurple relative block px-2 py-2 text-[40px] font-medium no-underline transition-colors duration-300;
+      @apply tablet:text-[20px] tablet:mr-6 text-mainPurple relative block px-2 py-2 text-[40px] font-medium no-underline transition-colors duration-300;
    }
 
    .text-link--active {

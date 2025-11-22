@@ -1,6 +1,6 @@
 'use client';
-import Dots from '@/components/common/Dots';
-import { SLICES_TYPES } from '@/lib/utils/componentSlicesType';
+import Dots from '@/lib/components/Dots';
+import { SECTIONS_TYPES } from '@/lib/utils/sectionsTypes';
 
 import useLogic from './logic/useLogic';
 
@@ -13,13 +13,13 @@ const Constructor = ({ slicesData = {} }) => {
    return (
       <div className="relative mx-auto h-screen w-full max-w-[1600px]">
          {validSlices.map(({ id, slice_type, ...slice }, index) => {
-            const Component = SLICES_TYPES[slice_type];
+            const Component = SECTIONS_TYPES[slice_type];
             const offset = index - activeIndex;
             const isActive = offset === 0;
 
             return (
                <section
-                  key={id}
+                  key={id + index}
                   className="ease-[cubic-bezier(0.68, -0.55, 0.27, 1.55)] absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-600 will-change-[transform,opacity,scale]"
                   style={{
                      transform: `

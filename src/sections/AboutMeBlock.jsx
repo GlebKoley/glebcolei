@@ -3,9 +3,9 @@ import React from 'react';
 import { asHTML } from '@prismicio/client';
 import Link from 'next/link';
 
-import TextCardModal from '../common/Cards/TextCardModal';
-import Carousel from '../common/Carousel/Carousel';
-import TitleWithButton from '../common/TitleWithButton';
+import TextCardModal from '@/lib/components/Cards/TextCardModal';
+import Carousel from '@/lib/components/Carousel/Carousel';
+import TitleWithButton from '@/lib/components/TitleWithButton';
 
 const hoverCardBorders = [
    'hover:bg-[#B292FF55]',

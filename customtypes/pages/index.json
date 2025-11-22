@@ -24,6 +24,9 @@
             "fieldset": "Slice Zone",
             "config": {
                "choices": {
+                  "main_banner": {
+                     "type": "SharedSlice"
+                  },
                   "projects_accordion_block": {
                      "type": "SharedSlice"
                   },
@@ -34,9 +37,6 @@
                      "type": "SharedSlice"
                   },
                   "technologies_block": {
-                     "type": "SharedSlice"
-                  },
-                  "text_block": {
                      "type": "SharedSlice"
                   }
                }

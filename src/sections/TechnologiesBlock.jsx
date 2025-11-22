@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LevelComponent from '../common/LevelComponent';
-import TitleWithButton from '../common/TitleWithButton';
+import LevelComponent from '@/lib/components/LevelComponent';
+import TitleWithButton from '@/lib/components/TitleWithButton';
 
 const TechnologiesBlock = ({ data }) => {
    const { cards = [], title_component = {} } = data;

@@ -20,7 +20,7 @@ const SliderTabs = ({ cards, openIndex, setOpenIndex }) => {
             const isOpen = openIndex === index;
             return (
                <button
-                  key={title}
+                  key={index}
                   onClick={() => handleClick(index)}
                   ref={(el) => (buttonRefs.current[index] = el)}
                   className={`shrink-0 rounded-xl border px-4 py-2 whitespace-nowrap text-white transition-all ${

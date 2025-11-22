@@ -55,13 +55,6 @@
             "label": "Project cards",
             "repeat": true,
             "fields": {
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
               "accordion_data": {
                 "type": "StructuredText",
                 "config": {

@@ -1,5 +1,5 @@
 import { getPrismicData } from '@/lib/api/prismicApi';
-import PageComponentsConstructor from '@/lib/Constructor';
+import PageComponentsConstructor from '@/lib/pagesConstructor';
 import { collectPagesMetadata } from '@/lib/utils/collectPagesMetadata';
 
 export const generateStaticParams = async () => {
