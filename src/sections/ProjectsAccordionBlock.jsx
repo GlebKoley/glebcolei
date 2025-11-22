@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AccordionCards from '@/lib/components/Cards/AccordionCards';
-import TitleWithButton from '@/lib/components/TitleWithButton';
+import AccordionCards from '@/lib/components/Cards/ProjectDescriptionCard';
+import TitleWithButton from '@/lib/components/UI/TitleWithButton';
 
 const ProjectsAccordionBlock = ({ data }) => {
    const { project_cards = [], title_component = {} } = data;

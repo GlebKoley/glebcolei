@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import Dots from '../Dots';
+import Dots from '../UI/Dots';
 import useLogic from './logic/useLogic';
 
 const Carousel = ({ cards, children }) => {
@@ -15,10 +15,10 @@ const Carousel = ({ cards, children }) => {
          <div
             ref={carouselRef}
             style={{ transform: `translateX(${carouselTranslate}px)` }}
-            className="flex gap-[10px] transition-transform duration-500 ease-in-out"
+            className="flex w-full gap-2.5 transition-transform duration-500 ease-in-out"
          >
             {children.map((child, index) => (
-               <div key={index} className={`w-full flex-shrink-0 ${index === children.length - 1 ? 'pr-4' : 'pr-0'}`}>
+               <div key={index} className="w-full min-w-full shrink-0">
                   {child}
                </div>
             ))}

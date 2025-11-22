@@ -142,6 +142,7 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
 >;
 
 type PagesDocumentDataSlicesSlice =
+   | ConnectCardsBlockSlice
    | MainBannerSlice
    | ProjectsAccordionBlockSlice
    | AboutMeBlockSlice
@@ -577,6 +578,163 @@ type AboutMeBlockSliceVariation = AboutMeBlockSliceDefault;
 export type AboutMeBlockSlice = prismic.SharedSlice<'about_me_block', AboutMeBlockSliceVariation>;
 
 /**
+ * Item in *ConnectCardsBlock → Default → Primary → Cards*
+ */
+export interface ConnectCardsBlockSliceDefaultPrimaryCardsItem {
+   /**
+    * Emoji field in *ConnectCardsBlock → Default → Primary → Cards*
+    *
+    * - **Field Type**: Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.Cards[].emoji
+    * - **Documentation**: https://prismic.io/docs/fields/text
+    */
+   emoji: prismic.KeyTextField;
+
+   /**
+    * Title field in *ConnectCardsBlock → Default → Primary → Cards*
+    *
+    * - **Field Type**: Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.Cards[].title
+    * - **Documentation**: https://prismic.io/docs/fields/text
+    */
+   title: prismic.KeyTextField;
+
+   /**
+    * Subtitle field in *ConnectCardsBlock → Default → Primary → Cards*
+    *
+    * - **Field Type**: Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.Cards[].subtitle
+    * - **Documentation**: https://prismic.io/docs/fields/text
+    */
+   subtitle: prismic.KeyTextField;
+
+   /**
+    * Link field in *ConnectCardsBlock → Default → Primary → Cards*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.Cards[].Link
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   Link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *ConnectCardsBlock → Default → Primary*
+ */
+export interface ConnectCardsBlockSliceDefaultPrimary {
+   /**
+    * Title field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.title
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   title: prismic.RichTextField;
+
+   /**
+    * Description field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.description
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   description: prismic.RichTextField;
+
+   /**
+    * Cards field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Group
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.Cards[]
+    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+    */
+   Cards: prismic.GroupField<Simplify<ConnectCardsBlockSliceDefaultPrimaryCardsItem>>;
+
+   /**
+    * Availability text field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.availability_text
+    * - **Documentation**: https://prismic.io/docs/fields/text
+    */
+   availability_text: prismic.KeyTextField;
+
+   /**
+    * Not availability text field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.not_availability_text
+    * - **Documentation**: https://prismic.io/docs/fields/text
+    */
+   not_availability_text: prismic.KeyTextField;
+
+   /**
+    * Availability subtext field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.availability_subtext
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   availability_subtext: prismic.RichTextField;
+
+   /**
+    * Button field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.button
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+   /**
+    * Button variant field in *ConnectCardsBlock → Default → Primary*
+    *
+    * - **Field Type**: Content Relationship
+    * - **Placeholder**: *None*
+    * - **API ID Path**: connect_cards_block.default.primary.button_variant
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+    */
+   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
+}
+
+/**
+ * Default variation for ConnectCardsBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: ConnectCardsBlock
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ConnectCardsBlockSliceDefault = prismic.SharedSliceVariation<
+   'default',
+   Simplify<ConnectCardsBlockSliceDefaultPrimary>,
+   never
+>;
+
+/**
+ * Slice variation for *ConnectCardsBlock*
+ */
+type ConnectCardsBlockSliceVariation = ConnectCardsBlockSliceDefault;
+
+/**
+ * ConnectCardsBlock Shared Slice
+ *
+ * - **API ID**: `connect_cards_block`
+ * - **Description**: ConnectCardsBlock
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ConnectCardsBlockSlice = prismic.SharedSlice<'connect_cards_block', ConnectCardsBlockSliceVariation>;
+
+/**
  * Primary content in *ContactMeBlock → Default → Primary*
  */
 export interface ContactMeBlockSliceDefaultPrimary {
@@ -969,6 +1127,11 @@ declare module '@prismicio/client' {
          AboutMeBlockSliceDefaultPrimary,
          AboutMeBlockSliceVariation,
          AboutMeBlockSliceDefault,
+         ConnectCardsBlockSlice,
+         ConnectCardsBlockSliceDefaultPrimaryCardsItem,
+         ConnectCardsBlockSliceDefaultPrimary,
+         ConnectCardsBlockSliceVariation,
+         ConnectCardsBlockSliceDefault,
          ContactMeBlockSlice,
          ContactMeBlockSliceDefaultPrimary,
          ContactMeBlockSliceVariation,

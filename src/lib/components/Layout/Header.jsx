@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import renderHeaderLinks from '@/lib/utils/renderHeaderLinks';
 
-const BurgerMenu = dynamic(() => import('@/lib/components/BurgerMenu'));
+const BurgerMenu = dynamic(() => import('@/lib/components/Layout/BurgerMenu'));
 
 const Header = ({ links = [] }) => {
    const pathname = usePathname();

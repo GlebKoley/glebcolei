@@ -1,5 +1,5 @@
 'use client';
-import Dots from '@/lib/components/Dots';
+import Dots from '@/lib/components/UI/Dots';
 import { SECTIONS_TYPES } from '@/lib/utils/sectionsTypes';
 
 import useLogic from './logic/useLogic';

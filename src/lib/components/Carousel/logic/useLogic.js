@@ -8,52 +8,70 @@ const useLogic = ({ length }) => {
 
    const touchStartX = useRef(0);
    const touchEndX = useRef(0);
+   const minSwipeDistance = 50;
 
    useEffect(() => {
       const updatePosition = () => {
          if (!carouselRef.current) return;
-         const containerWidth = carouselRef.current.offsetWidth;
-         setCarouselTranslate(-activeIndex * containerWidth);
+
+         const firstItem = carouselRef.current.children[0];
+         if (!firstItem) return;
+
+         const itemWidth = firstItem.offsetWidth;
+
+         const style = window.getComputedStyle(carouselRef.current);
+         const gap = parseFloat(style.gap) || 0;
+
+         const moveDistance = itemWidth + gap;
+
+         setCarouselTranslate(-activeIndex * moveDistance);
       };
 
       updatePosition();
       window.addEventListener('resize', updatePosition);
+
       return () => window.removeEventListener('resize', updatePosition);
-   }, [activeIndex]);
+   }, [activeIndex, length]);
 
    useEffect(() => {
       const carousel = carouselRef.current;
       if (!carousel) return;
 
-      const handleTouchStart = (e) => {
-         touchStartX.current = e.touches[0].clientX;
+      const onTouchStart = (e) => {
+         touchEndX.current = 0;
+         touchStartX.current = e.targetTouches[0].clientX;
       };
 
-      const handleTouchMove = (e) => {
-         touchEndX.current = e.touches[0].clientX;
+      const onTouchMove = (e) => {
+         touchEndX.current = e.targetTouches[0].clientX;
       };
 
-      const handleTouchEnd = () => {
+      const onTouchEnd = () => {
+         if (!touchStartX.current || !touchEndX.current) return;
+
          const distance = touchStartX.current - touchEndX.current;
-         const threshold = 50;
+         const isLeftSwipe = distance > minSwipeDistance;
+         const isRightSwipe = distance < -minSwipeDistance;
 
-         if (distance > threshold && activeIndex < length - 1) {
-            setActiveIndex(activeIndex + 1);
-         } else if (distance < -threshold && activeIndex > 0) {
-            setActiveIndex(activeIndex - 1);
+         if (isLeftSwipe && activeIndex < length - 1) {
+            setActiveIndex((prev) => prev + 1);
+         }
+
+         if (isRightSwipe && activeIndex > 0) {
+            setActiveIndex((prev) => prev - 1);
          }
       };
 
-      carousel.addEventListener('touchstart', handleTouchStart);
-      carousel.addEventListener('touchmove', handleTouchMove);
-      carousel.addEventListener('touchend', handleTouchEnd);
+      carousel.addEventListener('touchstart', onTouchStart);
+      carousel.addEventListener('touchmove', onTouchMove);
+      carousel.addEventListener('touchend', onTouchEnd);
 
       return () => {
-         carousel.removeEventListener('touchstart', handleTouchStart);
-         carousel.removeEventListener('touchmove', handleTouchMove);
-         carousel.removeEventListener('touchend', handleTouchEnd);
+         carousel.removeEventListener('touchstart', onTouchStart);
+         carousel.removeEventListener('touchmove', onTouchMove);
+         carousel.removeEventListener('touchend', onTouchEnd);
       };
-   }, [activeIndex, setActiveIndex]);
+   }, [activeIndex, length]);
 
    return {
       activeIndex,

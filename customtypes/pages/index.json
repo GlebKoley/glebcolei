@@ -24,6 +24,9 @@
             "fieldset": "Slice Zone",
             "config": {
                "choices": {
+                  "connect_cards_block": {
+                     "type": "SharedSlice"
+                  },
                   "main_banner": {
                      "type": "SharedSlice"
                   },

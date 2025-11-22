@@ -1,7 +1,7 @@
 import { Raleway } from 'next/font/google';
 
 import './globals.css';
-import Header from '@/lib/components/Header';
+import Header from '@/lib/components/Layout/Header';
 
 import { createClient } from '../../prismic/prismicio';
 
