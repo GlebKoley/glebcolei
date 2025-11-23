@@ -11,7 +11,7 @@ const Constructor = ({ slicesData = {} }) => {
    if (validSlices.length === 0) return null;
 
    return (
-      <div className="relative mx-auto h-screen w-full max-w-[1600px]">
+      <div className="relative mx-auto h-screen w-full max-w-[1600px] perspective-[1000px]">
          {validSlices.map(({ id, slice_type, ...slice }, index) => {
             const Component = SECTIONS_TYPES[slice_type];
             const offset = index - activeIndex;
@@ -20,11 +20,10 @@ const Constructor = ({ slicesData = {} }) => {
             return (
                <section
                   key={id + index}
-                  className="ease-[cubic-bezier(0.68, -0.55, 0.27, 1.55)] absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-600 will-change-[transform,opacity,scale]"
+                  className="ease-[cubic-bezier(0.68, -0.55, 0.27, 1.55)] absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-600 will-change-[transform,opacity]"
                   style={{
                      transform: `
-                translate3d(0, ${offset * 500}px, 0)
-                scale(${isActive ? 1 : 0.4})
+                translate3d(0, ${offset * 500}px, ${isActive ? 0 : -600}px)
               `,
                      opacity: isActive ? 1 : 0,
                      zIndex: isActive ? 10 : 0,
