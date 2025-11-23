@@ -42,21 +42,21 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-   background: var(--color-lightBlack);
+   background: white;
    border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-   background: #4b4b4b;
+   background: white;
    border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-   background: #6a6a6a;
+   background: white;
 }
 
 body {
-   scrollbar-color: #4b4b4b var(--color-lightBlack);
+   scrollbar-color: white white;
    scrollbar-width: thin;
 }
 
@@ -285,10 +285,6 @@ body {
 
    .animate-fadeIn {
       animation: fadeIn 0.18s ease-out;
-   }
-
-   .animate-float {
-      animation: float 6s ease-in-out infinite;
    }
 
    .react-icon {
