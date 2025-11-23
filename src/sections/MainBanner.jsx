@@ -39,19 +39,19 @@ const TextBlock = ({ data }) => {
                </div>
             )}
          </div>
-         <div className="tablet:order-1 tablet:mx-[unset] relative z-10 -order-1 mx-auto">
+         {/* <div className="tablet:order-1 tablet:mx-[unset] relative z-10 -order-1 mx-auto">
             <GradientBlob className="inset-0 scale-120 animate-pulse blur-[60px]" />
             <PrismicNextImage
                width={550}
                height={550}
                field={image}
                preload={true}
-               fetchPriority="high"
                loading="eager"
+               fetchPriority="high"
                loader={({ src }) => `${src}&w=800&h=800&q=100&format=webp`}
                className="tablet:max-h-[550px] tablet:max-w-[550px] animate-float h-full max-h-[200px] w-full max-w-[200px] object-cover drop-shadow-2xl"
             />
-         </div>
+         </div> */}
       </div>
    );
 };
