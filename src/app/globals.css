@@ -210,7 +210,7 @@ body {
       }
 
       * {
-         @apply z-110 h-max;
+         @apply z-110;
       }
 
       ul {
@@ -236,7 +236,7 @@ body {
       }
 
       & .block-img {
-         @apply tablet:w-8 tablet:mx-3 mx-2 w-7 rounded-2xl bg-gray-100 p-1;
+         @apply tablet:w-8 tablet:h-8 tablet:mx-3 mx-2 h-7 w-7 rounded-2xl bg-gray-100 p-1;
       }
    }
 
