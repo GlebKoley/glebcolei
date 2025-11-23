@@ -46,6 +46,7 @@ const TextBlock = ({ data }) => {
                height={550}
                field={image}
                preload={true}
+               fetchpriority="high"
                loading="eager"
                loader={({ src }) => `${src}&w=800&h=800&q=100&format=webp`}
                className="tablet:max-h-[550px] tablet:max-w-[550px] animate-float h-full max-h-[200px] w-full max-w-[200px] object-cover drop-shadow-2xl"
