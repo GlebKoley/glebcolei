@@ -16,15 +16,11 @@ const Constructor = ({ slicesData = {} }) => {
             const Component = SECTIONS_TYPES[slice_type];
             const offset = index - activeIndex;
             const isActive = offset === 0;
-            const isBefore = offset < 0;
-            const isAfter = offset > 0;
 
             return (
                <section
                   key={id + index}
-                  className={`absolute top-0 left-0 flex h-screen w-full justify-center transition-all duration-800 ease-in-out will-change-[transform,opacity] ${
-                     isActive ? 'z-10 translate-y-0 opacity-100' : ''
-                  } ${isBefore ? 'z-0 -translate-y-full opacity-0' : ''} ${isAfter ? 'z-0 translate-y-full opacity-0' : ''}`}
+                  className={`absolute top-0 left-0 flex h-screen w-full justify-center duration-600 ${isActive ? 'opacity-100' : 'opacity-0'}`}
                >
                   <Component data={slice?.primary} currentScreenIndex={activeIndex} />
                </section>

@@ -40,7 +40,7 @@ const TextBlockWithAnimatedIcon = ({ data, currentScreenIndex }) => {
             </div>
          </div>
 
-         <AnimateIcon activeScreenIndex={2} src="/react-icon-white.svg" componentScreenIndex={currentScreenIndex} />
+         {/* <AnimateIcon activeScreenIndex={2} src="/react-icon-white.svg" componentScreenIndex={currentScreenIndex} /> */}
       </div>
    );
 };
