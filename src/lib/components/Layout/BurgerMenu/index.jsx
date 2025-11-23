@@ -11,7 +11,7 @@ const BurgerMenu = ({ data: { pathname, links = [] } }) => {
       <>
          <button
             onClick={toggle}
-            className="tablet:hidden relative z-50 flex cursor-pointer justify-self-end transition-transform duration-200 hover:scale-85 hover:rotate-90"
+            className="tablet:hidden relative z-50 ml-auto flex cursor-pointer transition-transform duration-200 hover:scale-85 hover:rotate-90"
          >
             <img width={35} height={35} alt={'Menu btn'} src={isOpen ? '/close-icon.svg' : '/burger-menu-icon.svg'} />
          </button>
