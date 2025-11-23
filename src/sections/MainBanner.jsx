@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { asHTML } from '@prismicio/client';
@@ -13,7 +14,7 @@ const TextBlock = ({ data }) => {
    const htmlDescription = asHTML(description);
 
    return (
-      <div className="main-wrapper tablet:flex-row tablet:justify-between tablet:mt-20 relative mt-0 flex flex-col justify-start gap-0">
+      <div className="main-wrapper tablet:flex-row tablet:justify-between relative mt-0 flex flex-col justify-start gap-0">
          <GradientBlob className="-top-40 -left-20" />
 
          <div className="tablet:gap-[30px] tablet:mx-[unset] z-10 mx-auto flex max-w-[660px] flex-col gap-3">
@@ -39,7 +40,7 @@ const TextBlock = ({ data }) => {
                </div>
             )}
          </div>
-         {/* <div className="tablet:order-1 tablet:mx-[unset] relative z-10 -order-1 mx-auto">
+         <div className="tablet:order-1 tablet:mx-[unset] tablet:max-h-[550px] tablet:max-w-[550px] relative z-10 -order-1 mx-auto max-h-[200px] w-full max-w-[200px]">
             <GradientBlob className="inset-0 scale-120 animate-pulse blur-[60px]" />
             <PrismicNextImage
                width={550}
@@ -49,9 +50,9 @@ const TextBlock = ({ data }) => {
                loading="eager"
                fetchPriority="high"
                loader={({ src }) => `${src}&w=800&h=800&q=100&format=webp`}
-               className="tablet:max-h-[550px] tablet:max-w-[550px] animate-float h-full max-h-[200px] w-full max-w-[200px] object-cover drop-shadow-2xl"
+               className="animate-float h-full object-cover drop-shadow-2xl"
             />
-         </div> */}
+         </div>
       </div>
    );
 };

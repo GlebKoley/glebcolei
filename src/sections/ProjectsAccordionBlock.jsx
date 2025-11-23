@@ -8,7 +8,7 @@ const ProjectsAccordionBlock = ({ data }) => {
    const { project_cards = [], title_component = {} } = data;
 
    return (
-      <div className="main-wrapper tablet:gap-12 tablet:mt-11 flex h-max flex-col gap-4 pb-5 text-center">
+      <div className="main-wrapper tablet:gap-12 tablet:mt-11 flex h-max flex-col gap-4 pb-0 text-center">
          {title_component?.data && <TitleWithButton data={title_component.data} />}
          {renderTwoGradientBlobs()}
 

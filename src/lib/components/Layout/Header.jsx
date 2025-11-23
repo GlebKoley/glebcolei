@@ -10,16 +10,22 @@ const BurgerMenu = dynamic(() => import('@/lib/components/Layout/BurgerMenu'));
 
 const Header = ({ links = [] }) => {
    const pathname = usePathname();
+   const isMainPage = pathname === '/';
 
    return (
-      <header className="tablet:pb-2 desktop:pb-0 tablet:pt-5 px-4 pt-4">
-         <nav
-            className={`tablet:flex mx-auto hidden w-max items-center justify-center rounded-[100px] bg-[#211f2359] px-6 py-3 backdrop-blur-[20px]`}
+      <>
+         <header
+            className={`tablet:pb-2 desktop:pb-0 tablet:pt-5 tablet:justify-self-center tablet:bg-transparent fixed z-50 w-full justify-self-end ${isMainPage ? 'bg-[#00000063]' : 'bg-transparent'} px-4 pt-3 pb-1.5`}
          >
-            {renderHeaderLinks({ links, pathname })}
-         </nav>
-         <BurgerMenu data={{ links, pathname }} />
-      </header>
+            <nav
+               className={`tablet:flex mx-auto hidden w-max items-center justify-center rounded-[100px] bg-[#211f2359] px-6 py-3 backdrop-blur-[20px]`}
+            >
+               {renderHeaderLinks({ links, pathname })}
+            </nav>
+            <BurgerMenu data={{ links, pathname }} />
+         </header>
+         <div className="tablet:h-[90px]" />
+      </>
    );
 };
 

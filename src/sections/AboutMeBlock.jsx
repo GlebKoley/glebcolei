@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { asHTML } from '@prismicio/client';

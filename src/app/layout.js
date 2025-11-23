@@ -36,7 +36,7 @@ const RootLayout = async ({ children }) => {
 
    return (
       <html lang="ru" className="h-full">
-         <body className={`${RalewayFont.variable} h-full overflow-hidden antialiased`}>
+         <body className={`${RalewayFont.variable} h-full overflow-x-hidden antialiased`}>
             <Header links={layoutData.data.button_link} />
             {children}
          </body>

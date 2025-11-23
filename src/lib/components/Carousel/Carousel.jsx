@@ -28,7 +28,7 @@ const Carousel = ({ cards, children }) => {
             gap="space-x-3"
             size={'h-3 w-3'}
             dotsLength={length}
-            positionClass="mt-4"
+            positionClass="mt-0"
             direction="horizontal"
             activeIndex={activeIndex}
             onDotClick={setActiveIndex}

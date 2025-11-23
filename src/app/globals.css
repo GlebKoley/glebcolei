@@ -118,7 +118,7 @@ body {
    }
 
    .main-wrapper {
-      @apply tablet:px-10 desktop-xl:px-0 tablet:mt-5 mt-4 flex w-full flex-col gap-3 px-4;
+      @apply tablet:px-10 desktop-xl:px-0 flex w-full flex-col gap-3 px-4;
    }
 
    .text-link {
@@ -240,19 +240,6 @@ body {
       }
    }
 
-   .parallax-wrapper {
-      @apply tablet:mt-0 tablet:mx-[unset] tablet:w-[180px] tablet:h-[180px] tablet:right-0 tablet:translate-[unset] tablet:absolute tablet:bottom-35 pointer-events-none mx-auto mt-5 h-[120px] w-[120px];
-   }
-
-   @keyframes spin {
-      from {
-         transform: rotate(0deg);
-      }
-      to {
-         transform: rotate(360deg);
-      }
-   }
-
    @keyframes breathe {
       0%,
       100% {
@@ -302,10 +289,6 @@ body {
 
    .animate-float {
       animation: float 6s ease-in-out infinite;
-   }
-
-   .spin {
-      animation: spin 60s linear infinite;
    }
 
    .react-icon {

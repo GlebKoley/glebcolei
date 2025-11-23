@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import TechnologyCard from '@/lib/components/Cards/TechnologyCard';
@@ -8,7 +10,7 @@ const TechnologiesBlock = ({ data }) => {
    const { cards = [], title_component = {} } = data;
 
    return (
-      <div className="main-wrapper tablet:gap-0 tablet:pt-6 flex flex-col gap-8 px-0">
+      <div className="main-wrapper tablet:gap-0 relative flex flex-col gap-8 px-0">
          {title_component?.data && <TitleWithButton titleCenter={true} data={title_component.data} />}
          {renderTwoGradientBlobs()}
 

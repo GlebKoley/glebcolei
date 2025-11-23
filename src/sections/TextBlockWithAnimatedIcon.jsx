@@ -6,14 +6,14 @@ import Link from 'next/link';
 import AnimateIcon from '@/lib/components/UI/AnimateIcon';
 import renderTwoGradientBlobs from '@/lib/utils/renderTwoGradientBlobs';
 
-const TextBlockWithAnimatedIcon = ({ data, currentScreenIndex }) => {
+const TextBlockWithAnimatedIcon = ({ data }) => {
    const { title, button_link, description, button_variant } = data;
 
    const htmlTitle = asHTML(title);
    const htmlDescription = asHTML(description);
 
    return (
-      <div className="main-wrapper tablet:gap-10 mobile:max-w-[1150px] tablet:mt-[10dvh] relative mx-auto mt-4 max-w-full gap-3 text-center">
+      <div className="main-wrapper tablet:gap-10 mobile:max-w-[1150px] relative max-w-full gap-3 text-center">
          {renderTwoGradientBlobs()}
 
          <div className="group from-lightBlack to-mainBlack tablet:p-[50px_20px_80px_20px] relative overflow-hidden rounded-[40px] border-2 border-[#272727] bg-linear-to-br px-4 py-10 transition-all duration-350 hover:shadow-[0_0_40px_rgba(178,146,255,0.2)]">
@@ -40,7 +40,7 @@ const TextBlockWithAnimatedIcon = ({ data, currentScreenIndex }) => {
             </div>
          </div>
 
-         {/* <AnimateIcon activeScreenIndex={2} src="/react-icon-white.svg" componentScreenIndex={currentScreenIndex} /> */}
+         <AnimateIcon activeScreenIndex={2} src="/react-icon-white.svg" />
       </div>
    );
 };

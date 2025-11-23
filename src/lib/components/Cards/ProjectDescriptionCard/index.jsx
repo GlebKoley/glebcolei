@@ -7,7 +7,7 @@ const AccordionCards = ({ cards }) => {
    const [openIndex, setOpenIndex] = useState(0);
 
    return (
-      <div className="tablet:flex-row tablet:h-[62dvh] tablet:gap-6 relative flex h-[80dvh] w-full flex-col gap-4 px-2">
+      <div className="tablet:flex-row tablet:h-[62dvh] tablet:gap-6 relative flex h-[80dvh] w-full flex-col gap-0 px-2">
          <div className="border-mainPurple/60 relative flex-1 overflow-hidden rounded-2xl border bg-[#111]">
             {cards.map((card, index) => {
                const isActive = index === openIndex;
