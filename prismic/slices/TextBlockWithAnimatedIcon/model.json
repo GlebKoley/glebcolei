@@ -1,8 +1,8 @@
 {
-  "id": "contact_me_block",
+  "id": "text_block_with_animated_icon",
   "type": "SharedSlice",
-  "name": "ContactMeBlock",
-  "description": "ContactMeBlock",
+  "name": "TextBlockWithAnimatedIcon",
+  "description": "TextBlockWithAnimatedIcon",
   "variations": [
     {
       "id": "default",

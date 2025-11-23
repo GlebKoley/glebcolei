@@ -10,7 +10,7 @@ const TechnologyItem = ({ item }) => {
          target="_blank"
          href={link?.url}
          rel="noopener noreferrer"
-         className="group flex flex-row items-center gap-3.5"
+         className="group/item flex flex-row items-center gap-3.5"
       >
          <div className="rounded-full bg-[#272727] p-2">
             <img
@@ -22,7 +22,7 @@ const TechnologyItem = ({ item }) => {
                className="min-h-[30px] min-w-[30px] rounded-2xl"
             />
          </div>
-         <span className="description-16 tablet:group-hover:translate-x-1 tablet:group-hover:text-lightPurple text-white transition-transform duration-200">
+         <span className="description-16 tablet:group-hover/item:translate-x-1 tablet:group-hover/item:text-lightPurple text-white transition-transform duration-200">
             {text}
          </span>
          <LevelComponent level={level} />

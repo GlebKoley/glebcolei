@@ -6,6 +6,7 @@ import AboutMeLeftCard from '@/lib/components/Cards/AboutMeLeftCard';
 import TextCardModal from '@/lib/components/Cards/TextCardModal';
 import Carousel from '@/lib/components/Carousel/Carousel';
 import TitleWithButton from '@/lib/components/UI/TitleWithButton';
+import renderTwoGradientBlobs from '@/lib/utils/renderTwoGradientBlobs';
 
 const AboutMeBlock = ({ data }) => {
    const {
@@ -19,8 +20,10 @@ const AboutMeBlock = ({ data }) => {
 
    return (
       <div className="main-wrapper tablet:mt-11">
+         {renderTwoGradientBlobs()}
+
          <div className="tablet:gap-10 flex flex-col gap-6">
-            {title_component?.data && <TitleWithButton data={title_component.data} />}
+            {title_component?.data && <TitleWithButton titleCenter={true} data={title_component.data} />}
 
             <div className="mobile:flex mobile:gap-5 tablet:gap-10 hidden flex-row px-4">
                <div className="w-full">

@@ -24,6 +24,9 @@
             "fieldset": "Slice Zone",
             "config": {
                "choices": {
+                  "text_block_with_animated_icon": {
+                     "type": "SharedSlice"
+                  },
                   "connect_cards_block": {
                      "type": "SharedSlice"
                   },
@@ -34,9 +37,6 @@
                      "type": "SharedSlice"
                   },
                   "about_me_block": {
-                     "type": "SharedSlice"
-                  },
-                  "contact_me_block": {
                      "type": "SharedSlice"
                   },
                   "technologies_block": {

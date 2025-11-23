@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import ContactCard from '@/lib/components/Cards/ConnectCard';
 import AviableTimeCard from '@/lib/components/UI/AviableTimeCard';
+import renderTwoGradientBlobs from '@/lib/utils/renderTwoGradientBlobs';
 
 const ConnectCardsBlock = ({ data }) => {
    const {
@@ -20,9 +21,11 @@ const ConnectCardsBlock = ({ data }) => {
 
    return (
       <div className="tablet:mt-11 mt-4 flex h-full w-full justify-center overflow-hidden">
+         {renderTwoGradientBlobs()}
+
          <div className="mobile:max-w-[1200px] tablet:gap-6 relative mx-auto flex w-full max-w-full flex-col gap-2 px-4 text-center">
             <div className="flex flex-col gap-1">
-               <h1 className="title-60 font-semibold text-white" dangerouslySetInnerHTML={{ __html: asHTML(title) }} />
+               <h1 className="title-60" dangerouslySetInnerHTML={{ __html: asHTML(title) }} />
                <span
                   className="description-22 max-w-2xl self-center"
                   dangerouslySetInnerHTML={{ __html: asHTML(description) }}

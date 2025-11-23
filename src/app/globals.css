@@ -78,14 +78,14 @@ body {
    }
 
    .title-60 {
-      @apply tablet:text-[60px] tablet:leading-[70px] text-[32px] leading-10 font-normal text-white;
+      @apply tablet:text-[60px] tablet:leading-[70px] text-[32px] leading-10 font-semibold text-white;
    }
 
    .description-30 {
-      @apply tablet:text-[30px] tablet:leading-10 text-mainGray text-[20px] leading-[130%] font-light;
+      @apply tablet:text-[30px] tablet:leading-10 text-[20px] leading-[130%] font-light text-white;
 
       & strong {
-         @apply font-bold text-white;
+         @apply text-mainPurple font-bold;
       }
    }
 
@@ -202,18 +202,32 @@ body {
       @apply z-110 max-h-full min-w-full text-start;
 
       h2 {
-         @apply tablet:mb-3 tablet:text-[20px] mb-1 block text-[16px] leading-5;
+         @apply tablet:text-[24px] mb-5 block text-[20px] leading-tight font-bold text-white;
       }
 
       * {
          @apply z-110 h-max;
       }
 
+      ul {
+         @apply tablet:ml-2 tablet:mt-5 tablet:pl-6 ml-1 border-l-2 border-gray-700 pl-5;
+         list-style: none;
+      }
+
+      li {
+         @apply relative mb-3;
+
+         &::before {
+            content: '';
+            @apply tablet:-left-[31px] bg-mainPurple absolute top-2 -left-[27px] h-3 w-3 rounded-full shadow-[0_0_10px_rgba(161,133,230,0.5)];
+         }
+      }
+
       p {
-         @apply tablet:text-[18px] inline-block text-[16px];
+         @apply tablet:text-[18px] inline-block text-[16px] leading-relaxed text-white;
 
          & strong {
-            @apply text-lightGreen;
+            @apply text-lightPurple font-semibold;
          }
       }
 
@@ -280,6 +294,10 @@ body {
 
    .animate-fadeIn {
       animation: fadeIn 0.18s ease-out;
+   }
+
+   .animate-float {
+      animation: float 6s ease-in-out infinite;
    }
 
    .spin {

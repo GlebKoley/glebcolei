@@ -5,13 +5,16 @@ import Link from 'next/link';
 
 import { createDownloadHref } from '@/lib/utils/createDownloadHref';
 
-const TitleWithButton = ({ data }) => {
+const TitleWithButton = ({ data, titleCenter = false }) => {
    const { title, button = {}, button_variant = {} } = data;
    const htmlTitle = asHTML(title);
 
    return (
       <div className="tablet:gap-[22px] mb-0 flex flex-col items-center gap-5 text-center">
-         <h2 className="description-30" dangerouslySetInnerHTML={{ __html: htmlTitle }} />
+         <h2
+            dangerouslySetInnerHTML={{ __html: htmlTitle }}
+            className={`description-30 ${titleCenter ? 'tablet:text-center' : ''}`}
+         />
          {button?.link_type && (
             <Link
                href={button.uid ?? {}}

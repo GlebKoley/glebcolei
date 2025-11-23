@@ -67,7 +67,7 @@ const ContactCard = ({ card, index = 0 }) => {
          <div onClick={handleMailtoClick} className="group relative block cursor-pointer">
             {CardContent}
             <div
-               className={`bg-mainPurple absolute top-full left-1/2 z-10 -translate-x-1/2 rounded-md p-1 text-xs font-medium text-white shadow-lg transition-all duration-300 ease-out ${
+               className={`bg-mainPurple/50 absolute top-full left-1/2 z-10 -translate-x-1/2 rounded-md p-1 text-xs font-medium text-white shadow-lg transition-all duration-300 ease-out ${
                   isCopied ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-1 opacity-0'
                }`}
             >

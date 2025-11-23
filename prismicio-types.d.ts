@@ -142,11 +142,11 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
 >;
 
 type PagesDocumentDataSlicesSlice =
+   | TextBlockWithAnimatedIconSlice
    | ConnectCardsBlockSlice
    | MainBannerSlice
    | ProjectsAccordionBlockSlice
    | AboutMeBlockSlice
-   | ContactMeBlockSlice
    | TechnologiesBlockSlice;
 
 /**
@@ -735,78 +735,6 @@ type ConnectCardsBlockSliceVariation = ConnectCardsBlockSliceDefault;
 export type ConnectCardsBlockSlice = prismic.SharedSlice<'connect_cards_block', ConnectCardsBlockSliceVariation>;
 
 /**
- * Primary content in *ContactMeBlock → Default → Primary*
- */
-export interface ContactMeBlockSliceDefaultPrimary {
-   /**
-    * Title field in *ContactMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: contact_me_block.default.primary.title
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   title: prismic.RichTextField;
-
-   /**
-    * Description field in *ContactMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: contact_me_block.default.primary.description
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   description: prismic.RichTextField;
-
-   /**
-    * Button link field in *ContactMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Link
-    * - **Placeholder**: *None*
-    * - **API ID Path**: contact_me_block.default.primary.button_link
-    * - **Documentation**: https://prismic.io/docs/fields/link
-    */
-   button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-   /**
-    * Button variant field in *ContactMeBlock → Default → Primary*
-    *
-    * - **Field Type**: Content Relationship
-    * - **Placeholder**: *None*
-    * - **API ID Path**: contact_me_block.default.primary.button_variant
-    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-    */
-   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
-}
-
-/**
- * Default variation for ContactMeBlock Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ContactMeBlockSliceDefault = prismic.SharedSliceVariation<
-   'default',
-   Simplify<ContactMeBlockSliceDefaultPrimary>,
-   never
->;
-
-/**
- * Slice variation for *ContactMeBlock*
- */
-type ContactMeBlockSliceVariation = ContactMeBlockSliceDefault;
-
-/**
- * ContactMeBlock Shared Slice
- *
- * - **API ID**: `contact_me_block`
- * - **Description**: ContactMeBlock
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type ContactMeBlockSlice = prismic.SharedSlice<'contact_me_block', ContactMeBlockSliceVariation>;
-
-/**
  * Item in *MainBanner → Default → Primary → Buttons group*
  */
 export interface MainBannerSliceDefaultPrimaryButtonsGroupItem {
@@ -1090,6 +1018,81 @@ type TechnologiesBlockSliceVariation = TechnologiesBlockSliceDefault;
  */
 export type TechnologiesBlockSlice = prismic.SharedSlice<'technologies_block', TechnologiesBlockSliceVariation>;
 
+/**
+ * Primary content in *TextBlockWithAnimatedIcon → Default → Primary*
+ */
+export interface TextBlockWithAnimatedIconSliceDefaultPrimary {
+   /**
+    * Title field in *TextBlockWithAnimatedIcon → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: text_block_with_animated_icon.default.primary.title
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   title: prismic.RichTextField;
+
+   /**
+    * Description field in *TextBlockWithAnimatedIcon → Default → Primary*
+    *
+    * - **Field Type**: Rich Text
+    * - **Placeholder**: *None*
+    * - **API ID Path**: text_block_with_animated_icon.default.primary.description
+    * - **Documentation**: https://prismic.io/docs/fields/rich-text
+    */
+   description: prismic.RichTextField;
+
+   /**
+    * Button link field in *TextBlockWithAnimatedIcon → Default → Primary*
+    *
+    * - **Field Type**: Link
+    * - **Placeholder**: *None*
+    * - **API ID Path**: text_block_with_animated_icon.default.primary.button_link
+    * - **Documentation**: https://prismic.io/docs/fields/link
+    */
+   button_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+   /**
+    * Button variant field in *TextBlockWithAnimatedIcon → Default → Primary*
+    *
+    * - **Field Type**: Content Relationship
+    * - **Placeholder**: *None*
+    * - **API ID Path**: text_block_with_animated_icon.default.primary.button_variant
+    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+    */
+   button_variant: ContentRelationshipFieldWithData<[{ id: 'buttons_variant'; fields: ['variant'] }]>;
+}
+
+/**
+ * Default variation for TextBlockWithAnimatedIcon Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextBlockWithAnimatedIconSliceDefault = prismic.SharedSliceVariation<
+   'default',
+   Simplify<TextBlockWithAnimatedIconSliceDefaultPrimary>,
+   never
+>;
+
+/**
+ * Slice variation for *TextBlockWithAnimatedIcon*
+ */
+type TextBlockWithAnimatedIconSliceVariation = TextBlockWithAnimatedIconSliceDefault;
+
+/**
+ * TextBlockWithAnimatedIcon Shared Slice
+ *
+ * - **API ID**: `text_block_with_animated_icon`
+ * - **Description**: TextBlockWithAnimatedIcon
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextBlockWithAnimatedIconSlice = prismic.SharedSlice<
+   'text_block_with_animated_icon',
+   TextBlockWithAnimatedIconSliceVariation
+>;
+
 declare module '@prismicio/client' {
    interface CreateClient {
       (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -1132,10 +1135,6 @@ declare module '@prismicio/client' {
          ConnectCardsBlockSliceDefaultPrimary,
          ConnectCardsBlockSliceVariation,
          ConnectCardsBlockSliceDefault,
-         ContactMeBlockSlice,
-         ContactMeBlockSliceDefaultPrimary,
-         ContactMeBlockSliceVariation,
-         ContactMeBlockSliceDefault,
          MainBannerSlice,
          MainBannerSliceDefaultPrimaryButtonsGroupItem,
          MainBannerSliceDefaultPrimary,
@@ -1151,6 +1150,10 @@ declare module '@prismicio/client' {
          TechnologiesBlockSliceDefaultPrimary,
          TechnologiesBlockSliceVariation,
          TechnologiesBlockSliceDefault,
+         TextBlockWithAnimatedIconSlice,
+         TextBlockWithAnimatedIconSliceDefaultPrimary,
+         TextBlockWithAnimatedIconSliceVariation,
+         TextBlockWithAnimatedIconSliceDefault,
       };
    }
 }
