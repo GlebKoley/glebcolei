@@ -23,7 +23,7 @@ const ConnectCardsBlock = ({ data }) => {
       <div className="tablet:mt-11 mt-0 flex h-full w-full justify-center overflow-hidden">
          {renderTwoGradientBlobs()}
 
-         <div className="mobile:max-w-[1200px] tablet:gap-6 relative mx-auto flex w-full max-w-full flex-col gap-2 px-4 text-center">
+         <div className="mobile:max-w-[1200px] tablet:gap-6 mobile:mb-4 relative mx-auto flex w-full max-w-full flex-col gap-2 px-4 text-center">
             <div className="flex flex-col gap-1">
                <h1 className="title-60" dangerouslySetInnerHTML={{ __html: asHTML(title) }} />
                <span
