@@ -10,7 +10,7 @@ const AccordionCardItem = ({ card, isAfter, isActive, isBefore }) => {
          } ${isBefore ? 'z-0 -translate-y-full opacity-0' : ''} ${isAfter ? 'z-0 translate-y-full opacity-0 blur-sm' : ''} `}
       >
          <div
-            dangerouslySetInnerHTML={{ __html: asHTML(card.accordion_data) }}
+            dangerouslySetInnerHTML={{ __html: asHTML(card?.data) }}
             className="description-22 accordion-card-html-data-styles tablet:p-6 h-full w-full overflow-auto p-4"
          />
       </div>

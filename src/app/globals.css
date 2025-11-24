@@ -56,8 +56,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 body {
-   scrollbar-color: white white;
+   scrollbar-color: rgb(35, 35, 35) rgb(213, 213, 213);
    scrollbar-width: thin;
+}
+
+body.burger-menu-open {
+   overflow: hidden;
 }
 
 @layer components {
@@ -206,7 +210,7 @@ body {
       @apply z-110 max-h-full min-w-full text-start;
 
       h2 {
-         @apply tablet:text-[24px] mb-5 block text-[20px] leading-tight font-bold text-white;
+         @apply tablet:text-[24px] tablet:mb-5 mb-2 block text-[20px] leading-tight font-bold text-white;
       }
 
       * {

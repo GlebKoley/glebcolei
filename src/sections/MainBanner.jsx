@@ -14,7 +14,7 @@ const TextBlock = ({ data }) => {
    const htmlDescription = asHTML(description);
 
    return (
-      <div className="main-wrapper tablet:flex-row tablet:justify-between relative mt-0 flex flex-col justify-start gap-0">
+      <div className="main-wrapper tablet:flex-row tablet:justify-between tablet:mt-15 relative flex flex-col justify-start gap-0">
          <GradientBlob className="-top-40 -left-20" />
 
          <div className="tablet:gap-[30px] tablet:mx-[unset] z-10 mx-auto flex max-w-[660px] flex-col gap-3">

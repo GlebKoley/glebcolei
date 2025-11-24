@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import CardItem from './elements/CardItem';
 
-const AccordionCards = ({ cards }) => {
+const ProjectsCards = ({ cards }) => {
    const [openIndex, setOpenIndex] = useState(0);
 
    return (
@@ -50,4 +50,4 @@ const AccordionCards = ({ cards }) => {
    );
 };
 
-export default AccordionCards;
+export default ProjectsCards;

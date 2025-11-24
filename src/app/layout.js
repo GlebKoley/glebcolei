@@ -1,6 +1,8 @@
-import { Raleway } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css';
+import { Raleway } from 'next/font/google';
+
 import Header from '@/lib/components/Layout/Header';
 
 import { createClient } from '../../prismic/prismicio';
@@ -39,6 +41,7 @@ const RootLayout = async ({ children }) => {
          <body className={`${RalewayFont.variable} h-full overflow-x-hidden antialiased`}>
             <Header links={layoutData.data.button_link} />
             {children}
+            <Analytics />
          </body>
       </html>
    );

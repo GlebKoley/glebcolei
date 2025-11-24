@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic';
 export const components = {
    main_banner: dynamic(() => import('./MainBanner')),
    about_me_block: dynamic(() => import('./AboutMeBlock')),
+   projects_block: dynamic(() => import('./ProjectsBlock')),
    technologies_block: dynamic(() => import('./TechnologiesBlock')),
    connect_cards_block: dynamic(() => import('./ConnectCardsBlock')),
-   projects_accordion_block: dynamic(() => import('./ProjectsAccordionBlock')),
    text_block_with_animated_icon: dynamic(() => import('./TextBlockWithAnimatedIcon')),
 };

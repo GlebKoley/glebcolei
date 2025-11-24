@@ -142,10 +142,10 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
 >;
 
 type PagesDocumentDataSlicesSlice =
+   | ProjectsBlockSlice
    | TextBlockWithAnimatedIconSlice
    | ConnectCardsBlockSlice
    | MainBannerSlice
-   | ProjectsAccordionBlockSlice
    | AboutMeBlockSlice
    | TechnologiesBlockSlice;
 
@@ -832,30 +832,30 @@ type MainBannerSliceVariation = MainBannerSliceDefault;
 export type MainBannerSlice = prismic.SharedSlice<'main_banner', MainBannerSliceVariation>;
 
 /**
- * Item in *ProjectsAccordionBlock → Default → Primary → Project cards*
+ * Item in *ProjectsBlock → Default → Primary → Cards*
  */
-export interface ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem {
+export interface ProjectsBlockSliceDefaultPrimaryCardsItem {
    /**
-    * Accordion data field in *ProjectsAccordionBlock → Default → Primary → Project cards*
+    * Data field in *ProjectsBlock → Default → Primary → Cards*
     *
     * - **Field Type**: Rich Text
     * - **Placeholder**: *None*
-    * - **API ID Path**: projects_accordion_block.default.primary.project_cards[].accordion_data
+    * - **API ID Path**: projects_block.default.primary.cards[].data
     * - **Documentation**: https://prismic.io/docs/fields/rich-text
     */
-   accordion_data: prismic.RichTextField;
+   data: prismic.RichTextField;
 }
 
 /**
- * Primary content in *ProjectsAccordionBlock → Default → Primary*
+ * Primary content in *ProjectsBlock → Default → Primary*
  */
-export interface ProjectsAccordionBlockSliceDefaultPrimary {
+export interface ProjectsBlockSliceDefaultPrimary {
    /**
-    * Title component field in *ProjectsAccordionBlock → Default → Primary*
+    * Title component field in *ProjectsBlock → Default → Primary*
     *
     * - **Field Type**: Content Relationship
     * - **Placeholder**: *None*
-    * - **API ID Path**: projects_accordion_block.default.primary.title_component
+    * - **API ID Path**: projects_block.default.primary.title_component
     * - **Documentation**: https://prismic.io/docs/fields/content-relationship
     */
    title_component: ContentRelationshipFieldWithData<
@@ -872,55 +872,42 @@ export interface ProjectsAccordionBlockSliceDefaultPrimary {
    >;
 
    /**
-    * Title field in *ProjectsAccordionBlock → Default → Primary*
-    *
-    * - **Field Type**: Rich Text
-    * - **Placeholder**: *None*
-    * - **API ID Path**: projects_accordion_block.default.primary.title
-    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-    */
-   title: prismic.RichTextField;
-
-   /**
-    * Project cards field in *ProjectsAccordionBlock → Default → Primary*
+    * Cards field in *ProjectsBlock → Default → Primary*
     *
     * - **Field Type**: Group
     * - **Placeholder**: *None*
-    * - **API ID Path**: projects_accordion_block.default.primary.project_cards[]
+    * - **API ID Path**: projects_block.default.primary.cards[]
     * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
     */
-   project_cards: prismic.GroupField<Simplify<ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem>>;
+   cards: prismic.GroupField<Simplify<ProjectsBlockSliceDefaultPrimaryCardsItem>>;
 }
 
 /**
- * Default variation for ProjectsAccordionBlock Slice
+ * Default variation for ProjectsBlock Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type ProjectsAccordionBlockSliceDefault = prismic.SharedSliceVariation<
+export type ProjectsBlockSliceDefault = prismic.SharedSliceVariation<
    'default',
-   Simplify<ProjectsAccordionBlockSliceDefaultPrimary>,
+   Simplify<ProjectsBlockSliceDefaultPrimary>,
    never
 >;
 
 /**
- * Slice variation for *ProjectsAccordionBlock*
+ * Slice variation for *ProjectsBlock*
  */
-type ProjectsAccordionBlockSliceVariation = ProjectsAccordionBlockSliceDefault;
+type ProjectsBlockSliceVariation = ProjectsBlockSliceDefault;
 
 /**
- * ProjectsAccordionBlock Shared Slice
+ * ProjectsBlock Shared Slice
  *
- * - **API ID**: `projects_accordion_block`
- * - **Description**: ProjectsAccordionBlock
+ * - **API ID**: `projects_block`
+ * - **Description**: ProjectsBlock
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type ProjectsAccordionBlockSlice = prismic.SharedSlice<
-   'projects_accordion_block',
-   ProjectsAccordionBlockSliceVariation
->;
+export type ProjectsBlockSlice = prismic.SharedSlice<'projects_block', ProjectsBlockSliceVariation>;
 
 /**
  * Item in *TechnologiesBlock → Default → Primary → Cards*
@@ -1140,11 +1127,11 @@ declare module '@prismicio/client' {
          MainBannerSliceDefaultPrimary,
          MainBannerSliceVariation,
          MainBannerSliceDefault,
-         ProjectsAccordionBlockSlice,
-         ProjectsAccordionBlockSliceDefaultPrimaryProjectCardsItem,
-         ProjectsAccordionBlockSliceDefaultPrimary,
-         ProjectsAccordionBlockSliceVariation,
-         ProjectsAccordionBlockSliceDefault,
+         ProjectsBlockSlice,
+         ProjectsBlockSliceDefaultPrimaryCardsItem,
+         ProjectsBlockSliceDefaultPrimary,
+         ProjectsBlockSliceVariation,
+         ProjectsBlockSliceDefault,
          TechnologiesBlockSlice,
          TechnologiesBlockSliceDefaultPrimaryCardsItem,
          TechnologiesBlockSliceDefaultPrimary,
