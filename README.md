@@ -41,9 +41,3 @@
 - **Prismic**
 - **TypeScript**
 - **ESLint + Prettier**
----
-
-# Установка зависимостей
-npm install
-
-# Создать файл .env.local
