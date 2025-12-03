@@ -291,6 +291,10 @@ body.burger-menu-open {
       animation: fadeIn 0.18s ease-out;
    }
 
+   .animate-float {
+      animation: float 5s ease-in-out infinite;
+   }
+
    .react-icon {
       @apply h-full w-full;
       animation:
