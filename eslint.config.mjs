@@ -1,25 +1,36 @@
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
 import globals from 'globals';
 import js from '@eslint/js';
 import eslintReact from 'eslint-plugin-react';
-import eslintJsxA11y from 'eslint-plugin-jsx-a11y';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import perfectionist from 'eslint-plugin-perfectionist';
 
-export default [
+const eslintConfig = defineConfig([
+   ...nextVitals,
+   ...nextTs,
    {
       plugins: {
          react: eslintReact,
-         'jsx-a11y': eslintJsxA11y,
          prettier: prettierPlugin,
          perfectionist,
       },
    },
-   {
-      ignores: ['build/**', '.next/**', '.husky/', 'public/**', '.cache/', 'node_modules/', 'package-lock.json', 'yarn.lock', 'out/**'],
-   },
    js.configs.recommended,
    eslintReact.configs.flat.recommended,
+   globalIgnores([
+      'build/**',
+      '.next/**',
+      '.husky/',
+      'public/**',
+      '.cache/',
+      'node_modules/',
+      'package-lock.json',
+      'yarn.lock',
+      'out/**',
+   ]),
    {
       languageOptions: {
          globals: {
@@ -28,10 +39,8 @@ export default [
             ...globals.es2021,
          },
          parserOptions: {
-            ...eslintJsxA11y.flatConfigs.recommended.parserOptions,
             ...eslintReact.configs.flat.recommended.parserOptions,
          },
-         ...eslintJsxA11y.flatConfigs.recommended.languageOptions,
          ...eslintReact.configs.flat.recommended.languageOptions,
       },
    },
@@ -44,13 +53,13 @@ export default [
       },
    },
    {
-      files: ['**/*.{js,jsx}'],
+      files: ['**/*.{ts,tsx,js,jsx}'],
       rules: {
          ...eslintConfigPrettier.rules,
          'no-unused-vars': 'off',
          'no-explicit-any': 'off',
          '@typescript-eslint/no-unused-vars': 'off',
-         '@typescript-eslint/no-explicit-any': 'off',
+         '@typescript-eslint/no-explicit-any': 'error',
          'react/function-component-definition': 'off',
          'no-undef': 'off',
          '@typescript-eslint/ban-ts-comment': 'off',
@@ -68,7 +77,8 @@ export default [
          'func-style': ['error', 'expression', { allowArrowFunctions: true }],
          'init-declarations': ['error', 'always'],
          'no-alert': 'error',
-         'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['error'] }] : ['warn', { allow: ['error'] }],
+         'no-console':
+            process.env.NODE_ENV === 'production' ? ['error', { allow: ['error'] }] : ['warn', { allow: ['error'] }],
          'no-else-return': 'error',
          'no-lonely-if': 'error',
          'no-useless-return': 'error',
@@ -93,6 +103,7 @@ export default [
          'react/jsx-boolean-value': [2, 'always'],
          'react/jsx-uses-react': 'off',
          'react/react-in-jsx-scope': 'off',
+         '@next/next/no-img-element':'off',
          'jsx-a11y/no-autofocus': [
             2,
             {
@@ -175,4 +186,6 @@ export default [
          ],
       },
    },
-];
+]);
+
+export default eslintConfig;
